@@ -59,13 +59,14 @@ Public Class frmMain
         DoubleBuffered = True
 #End If
         Project = New PrometheusProject
+        RegisterDefaultLoaders()
         'Dim testclip2 As New VideoClip("C:\data\VideoFrames\GSTest\Frame.png", 107)
         'testclip2.PaddingLength = 4
         'testclip2.Track = 2
         ''testclip2.StartFrame -= 200
         ''testclip2.EndFrame -= 200
         'Project.VideoClips.Add(testclip2)
-        Dim testclip As New VideoSourceClip("C:\data\VideoFrames\IslandFlythrough1\Frame.png", 10)
+        Dim testclip As New VideoSourceClip("C:\data\VideoFrames\IslandFlythrough1\Frame_0000000000.png")
         Project.SourceVideoClips.Add(testclip)
         SplitContainer3.Panel2MinSize = My.Resources.TabSelected.Width * PalleteTabStrip1.Tabs.Count
 
