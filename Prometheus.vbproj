@@ -147,6 +147,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="readme.md" />
     <None Include="Resources\first.png" />
   </ItemGroup>
   <ItemGroup>
