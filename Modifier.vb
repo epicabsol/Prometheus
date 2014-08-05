@@ -1,49 +1,46 @@
 ﻿
 Public Interface IModifier
-
+    ReadOnly Property TargetType As String
+    ReadOnly Property ID As String
 End Interface
 
 Public Class Modifier(Of T)
-    Public Target As VideoClip
-    Public Delegate Sub ModifierDelegate(Input As T, variables As IDictionary(Of String, Object))
+    Implements IModifier
+    Public Target As Clip
+    Public Delegate Sub ModifierDelegate(Input As T, Properties As Properties)
     Public ModifierSub As ModifierDelegate
     Public FrameNumber As Long
-    Public Sub ApplyModifier(Input As T)
-        SetVar("FrameNumber", FrameNumber)
-        ModifierSub.Invoke(Input, Variables)
+    Public Sub ApplyModifier(Input As T, Properties As Properties)
+        ModifierSub.Invoke(Input, Properties)
     End Sub
-    Public Sub New(ApplyFunction As ModifierDelegate)
+    Public Sub New(ApplyFunction As ModifierDelegate, ID As String)
         ModifierSub = ApplyFunction
+        _id = ID
     End Sub
-    Public Variables As IDictionary(Of String, Object) = New Generic.Dictionary(Of String, Object)
-    Public Function GetVar(name As String) As Object
-        If Variables.ContainsKey(name) Then
-            Return Variables(name)
-        Else
-            Return Nothing
-        End If
-    End Function
+    Private _id As String
+    Public ReadOnly Property ID As String Implements IModifier.ID
+        Get
+            Return _id
+        End Get
+    End Property
 
-    Public Sub SetVar(name As String, value As Object)
-        If Variables.ContainsKey(name) Then
-            Variables(name) = value
-        Else
-            Variables.Add(name, value)
-        End If
-    End Sub
-
+    Public ReadOnly Property TargetType As String Implements IModifier.TargetType
+        Get
+            Return GetType(T).Name
+        End Get
+    End Property
 End Class
 
 Public Class FrameModifier
     Inherits Modifier(Of Bitmap)
-    Public Sub New(applyFunction As ModifierDelegate)
-        MyBase.New(applyFunction)
+    Public Sub New(applyFunction As ModifierDelegate, id As String)
+        MyBase.New(applyFunction, id)
     End Sub
 End Class
 
 Public Class AudioModifier
     Inherits Modifier(Of Double)
-    Public Sub New(applyFunction As ModifierDelegate)
-        MyBase.New(applyFunction)
+    Public Sub New(applyFunction As ModifierDelegate, id As String)
+        MyBase.New(applyFunction, id)
     End Sub
 End Class

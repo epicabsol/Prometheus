@@ -9,7 +9,6 @@ Public Class TrackerControl
     Public Sub New()
         DoubleBuffered = True
         AllowDrop = True
-
     End Sub
     Public Property TrackHeight As Single = 50
     Public Property ViewXOffsetPercentage As Double = 0
@@ -168,7 +167,7 @@ Public Class TrackerControl
         g.DrawString(Clip.Length, SystemFonts.IconTitleFont, Brushes.White, b.Width - 20 - g.MeasureString(Clip.Length, SystemFonts.IconTitleFont).Width, CInt(TrackHeight \ 2) + 5)
         g.FillRectangle(Brushes.Black, g.MeasureString(Clip.StartFrame, SystemFonts.IconTitleFont).Width + 20, CInt(TrackHeight \ 2) + 1, TrackHeight \ 2, TrackHeight \ 2)
         g.DrawImage(Clip.Source.Thumbnail, g.MeasureString(Clip.StartFrame, SystemFonts.IconTitleFont).Width + 20, CInt(TrackHeight \ 2 + 1), TrackHeight \ 2, TrackHeight \ 2)
-        g.DrawString(BenMisc.GetName(Clip.Source.Path), SystemFonts.CaptionFont, Brushes.White, g.MeasureString(Clip.StartFrame, SystemFonts.IconTitleFont).Width + (TrackHeight \ 2) + 25, CInt(TrackHeight \ 2) + 1)
+        g.DrawString(BenMisc.GetName(Clip.Source.Properties.GetVar("DisplayPath")), SystemFonts.CaptionFont, Brushes.White, g.MeasureString(Clip.StartFrame, SystemFonts.IconTitleFont).Width + (TrackHeight \ 2) + 25, CInt(TrackHeight \ 2) + 1)
         g.DrawLine(BorderPen, 0, b.Height - 1, b.Width - 1, b.Height - 1)
         g.DrawLine(BorderPen, 0, b.Height - 1, 0, b.Height \ 2)
         g.DrawLine(BorderPen, b.Width - 1, b.Height - 1, b.Width - 1, b.Height \ 2)

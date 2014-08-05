@@ -110,11 +110,11 @@ Public Class frmMain
 #If AeroEnabled Then
         g.Clear(Color.Transparent)
 #End If
-        If MainButtonHover Then
-            g.DrawImage(My.Resources.Promethean_Button_Filled_x48, 8, 8, 48, 48)
-        Else
-            g.DrawImage(My.Resources.Promethean_Button_x48, 8, 8, 48, 48)
-        End If
+        'If MainButtonHover Then
+        g.DrawImage(My.Resources.Promethean_Button_Filled_x48, 8, 8, 48, 48)
+        'Else
+        'g.DrawImage(My.Resources.Promethean_Button_x48, 8, 8, 48, 48)
+        'End If
         Dim f As New Font(SystemFonts.CaptionFont.FontFamily.Name, 13)
         g.DrawString("Prometheus", f, Brushes.White, 63, 3)
         f.Dispose()
@@ -283,5 +283,115 @@ Public Class frmMain
                 DoDragDrop(newclip, DragDropEffects.Link)
             End If
         End If
+    End Sub
+
+    Private Sub cmdAddSource_Click(sender As Object, e As EventArgs) Handles cmdAddSource.Click
+        Dim browser As New OpenFileDialog
+        browser.Filter = BuildSourceFilter()
+        browser.InitialDirectory = Project.SourcePath
+        browser.ShowDialog()
+        If browser.FileName = "" Then Exit Sub
+        Dim type As ResourceType = GetFileType(browser.FileName)
+        Select Case type
+            Case ResourceType.Video
+                Dim newclip As New VideoSourceClip(browser.FileName)
+                Project.SourceVideoClips.Add(newclip)
+            Case ResourceType.Audio
+
+            Case ResourceType.Modifier
+
+            Case ResourceType.Generator
+
+            Case -1
+                MsgBox("No loaders available for that resource type. Sorry. =(" & vbNewLine & "(Hint: Get\Make a plugin for it!)")
+        End Select
+        Project.SourcePath = IO.Path.GetFullPath(browser.FileName)
+        PalleteTabStrip1.SetTab(0)
+    End Sub
+
+    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+        TrySave()
+    End Sub
+
+    Private Sub SaveAsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveAsToolStripMenuItem.Click
+        SaveAs()
+    End Sub
+
+    Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
+        Open()
+    End Sub
+#Region "Project IO"
+
+    Public Sub TrySave()
+        If Project.SavedYet = False Then
+            SaveAs()
+        Else
+            Save()
+        End If
+    End Sub
+    Private Sub SaveAs()
+        Dim browser As New SaveFileDialog
+        browser.Filter = "Prometheus Project (*.pmp)|*.pmp"
+        browser.ShowDialog()
+        If browser.FileName <> "" Then
+            Project.Save(browser.FileName)
+        End If
+    End Sub
+    Private Sub Save()
+        Project.Save(Project.SavePath)
+    End Sub
+    Public Sub IfSave()
+        If Project.Dirty Or Project.SavedYet = False Then
+            TrySave()
+        End If
+    End Sub
+    Public Sub Open()
+        If Project.Dirty Or Project.SavedYet = False Then
+
+            Dim userchoice As DialogResult = frmYesNoCancel.ShowDialog("Save project before closing?", "Open Project")
+            Select Case userchoice
+                Case Windows.Forms.DialogResult.Yes
+                    IfSave()
+                Case Windows.Forms.DialogResult.No
+
+                Case Windows.Forms.DialogResult.Cancel
+                    Exit Sub
+            End Select
+        End If
+        Dim browser As New OpenFileDialog
+        browser.Filter = "Prometheus Project (*.pmp)|*.pmp"
+        browser.ShowDialog()
+        If browser.FileName = "" Then Exit Sub
+        Project = PrometheusProject.Load(browser.FileName)
+        Project.Dirty = False
+        Project.SavedYet = True
+        PalleteTabStrip1.SetTab(0)
+        RefreshPreview()
+        Invalidate(True)
+    End Sub
+    Public Sub NewProject()
+        If Project.Dirty Or Project.SavedYet = False Then
+
+            Dim userchoice As DialogResult = frmYesNoCancel.ShowDialog("Save project before closing?", "Open Project")
+            Select Case userchoice
+                Case Windows.Forms.DialogResult.Yes
+                    IfSave()
+                Case Windows.Forms.DialogResult.No
+
+                Case Windows.Forms.DialogResult.Cancel
+                    Exit Sub
+            End Select
+        End If
+        Project = New PrometheusProject
+        Project.SavedYet = False
+        Project.Dirty = False
+        PalleteTabStrip1.SetTab(0)
+        RefreshPreview()
+        Invalidate(True)
+    End Sub
+#End Region
+
+    Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
+        NewProject()
     End Sub
 End Class

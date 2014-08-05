@@ -53,7 +53,7 @@
         Select Case Tabs(TabIndex).Text
             Case "Sources"
                 For Each vsc As VideoSourceClip In frmMain.Project.SourceVideoClips
-                    Dim newtile As New Xenon.XenonTile(vsc.Thumbnail, BenMisc.GetName(vsc.Path) & vbNewLine & vsc.Length & " Frames")
+                    Dim newtile As New Xenon.XenonTile(vsc.Thumbnail, BenMisc.GetName(vsc.Properties.GetVar("DisplayPath")) & vbNewLine & vsc.Length & " Frames")
                     frmMain.XenonTiler1.Items.Add(newtile)
                 Next
             Case "Modifiers"

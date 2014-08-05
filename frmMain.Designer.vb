@@ -48,6 +48,7 @@ Partial Class frmMain
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.VScrollBar2 = New System.Windows.Forms.VScrollBar()
         Me.cmdAddSource = New Xenon.XenonButton()
         Me.XenonTiler1 = New Xenon.XenonTiler()
         Me.XenonToolStrip1 = New Xenon.XenonToolStrip()
@@ -63,7 +64,6 @@ Partial Class frmMain
         Me.cmdPlay = New Xenon.XenonButton()
         Me.cmdBackOneFrame = New Xenon.XenonButton()
         Me.cmdRewind = New Xenon.XenonButton()
-        Me.VScrollBar2 = New System.Windows.Forms.VScrollBar()
         Me.PalleteTabStrip1 = New Prometheus.PalleteTabStrip()
         Me.DisplayControl1 = New Prometheus.DisplayControl()
         Me.TrackerControl1 = New Prometheus.TrackerControl()
@@ -103,47 +103,47 @@ Partial Class frmMain
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'SaveAsToolStripMenuItem
         '
         Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
-        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SaveAsToolStripMenuItem.Text = "Save As..."
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(120, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(120, 6)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(149, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -251,6 +251,15 @@ Partial Class frmMain
         Me.SplitContainer3.Size = New System.Drawing.Size(453, 212)
         Me.SplitContainer3.SplitterDistance = 196
         Me.SplitContainer3.TabIndex = 1
+        '
+        'VScrollBar2
+        '
+        Me.VScrollBar2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.VScrollBar2.Location = New System.Drawing.Point(236, 35)
+        Me.VScrollBar2.Name = "VScrollBar2"
+        Me.VScrollBar2.Size = New System.Drawing.Size(17, 177)
+        Me.VScrollBar2.TabIndex = 3
         '
         'cmdAddSource
         '
@@ -418,15 +427,6 @@ Partial Class frmMain
         Me.cmdRewind.Size = New System.Drawing.Size(22, 22)
         Me.cmdRewind.TabIndex = 0
         Me.cmdRewind.UseVisualStyleBackColor = True
-        '
-        'VScrollBar2
-        '
-        Me.VScrollBar2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.VScrollBar2.Location = New System.Drawing.Point(236, 35)
-        Me.VScrollBar2.Name = "VScrollBar2"
-        Me.VScrollBar2.Size = New System.Drawing.Size(17, 177)
-        Me.VScrollBar2.TabIndex = 3
         '
         'PalleteTabStrip1
         '

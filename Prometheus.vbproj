@@ -46,7 +46,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Promethean Icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BenMisc, Version=2013.11.27.1, Culture=neutral, processorArchitecture=MSIL">
@@ -84,6 +85,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuiltInModifiers.vb" />
     <Compile Include="Clip.vb" />
     <Compile Include="Cursors.vb" />
     <Compile Include="Extensibility.vb" />
@@ -94,6 +96,13 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmYesNoCancel.Designer.vb">
+      <DependentUpon>frmYesNoCancel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmYesNoCancel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IProperties.vb" />
     <Compile Include="Modifier.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -126,6 +135,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYesNoCancel.resx">
+      <DependentUpon>frmYesNoCancel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -166,7 +178,7 @@
     <None Include="Resources\last.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Promethean Icon.ico" />
+    <Content Include="Prometheus Icon.ico" />
     <Content Include="Resources\cursor_addclip.cur">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

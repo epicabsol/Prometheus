@@ -11,7 +11,7 @@ Prometheus automatically composites the tracks from top to bottom, just like an 
 Interface (not complete)
 ---------
 
--Menu bar: Totally unused and not complete (Might remove)
+-Menu bar: Might replace with a floating form like Office 2007 (Shouldn't look identical)
 -Top Left Pane: Modifier Stack pane (Incomplete)
 -Top Center pane: Sources(for video/audio) tab, Modifiers (NYI) tab, and Generators (Also NYI) tab
 -Top Right Pane: Preview
@@ -44,7 +44,7 @@ To Do (in no particular order)
 -Modifier Stack Panel
 -Modifier Property Window
 -Project File Serialization
--Custom cursors (Frustrating!!!!)
+-Cursor changing (Frustrating!!!!)
 -Audio Playback
 
 Notes

@@ -1,4 +1,5 @@
 ﻿Public Class Clip
+    Public Properties As New Properties
     Public Shared Comparer As New ClipTrackComparer
     ''' <summary>
     ''' The first frame of the clip.
@@ -18,10 +19,13 @@
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks>(EndFrame - StartFrame) + 1</remarks>
-    Public ReadOnly Property Length As Long
+    Public Property Length As Long
         Get
             Return (EndFrame - StartFrame) + 1
         End Get
+        Set(value As Long)
+            EndFrame = StartFrame + value - 1
+        End Set
     End Property
     ''' <summary>
     ''' Decides which part of the clip is under the given coordinate.
@@ -82,6 +86,11 @@
     Public Source As SourceClip
 End Class
 
+Public Class ModifierBinding
+    Public Modifier As IModifier
+    Public Properties As Properties
+End Class
+
 Public Class ClipTrackComparer
     Implements IComparer(Of Clip)
     Public Function Compare(x As Clip, y As Clip) As Integer Implements IComparer(Of Clip).Compare
@@ -91,9 +100,58 @@ End Class
 
 Public Class VideoClip
     Inherits Clip
-    Public Modifiers As New List(Of FrameModifier)
+    Public Modifiers As New List(Of ModifierBinding)
     Public Speed As Double = 1.0
-    Public Position As New Point(0, 0)
+    Public Property X As Single
+        Get
+            Return Properties.GetVar("X")
+        End Get
+        Set(value As Single)
+            Properties.SetVar("X", value)
+        End Set
+    End Property
+    Public Property Y As Single
+        Get
+            Return Properties.GetVar("Y")
+        End Get
+        Set(value As Single)
+            Properties.SetVar("Y", value)
+        End Set
+    End Property
+    Public Property Position As PointF
+        Get
+            Return New Point(X, Y)
+        End Get
+        Set(value As PointF)
+            X = value.X
+            Y = value.Y
+        End Set
+    End Property
+    Public Property Width As Single
+        Get
+            Return Properties.GetVar(Width)
+        End Get
+        Set(value As Single)
+            Properties.SetVar("Width", value)
+        End Set
+    End Property
+    Public Property Height As Single
+        Get
+            Return Properties.GetVar("Height")
+        End Get
+        Set(value As Single)
+            Properties.SetVar("Height", value)
+        End Set
+    End Property
+    Public Property Size As Size
+        Get
+            Return New Size(Width, Height)
+        End Get
+        Set(value As Size)
+            Width = value.Width
+            Height = value.Height
+        End Set
+    End Property
     'Public Source As VideoSourceClip
     Public Sub New(Source As VideoSourceClip, StartFrame As Long)
         Me.StartFrame = StartFrame
@@ -110,12 +168,9 @@ Public Class VideoClip
     End Property
     Public Function GetFinalFrame(Number As Long) As Bitmap
         Dim b As New Bitmap(Source.GetRawFrame(Math.Floor(Number * Speed)))
-        Dim oldframe As Long
-        For Each m As FrameModifier In Modifiers
-            oldframe = m.FrameNumber
-            m.FrameNumber = Number
-            m.ApplyModifier(b)
-            m.FrameNumber = oldframe
+        For Each m As ModifierBinding In Modifiers
+            m.Properties.SetVar("Frame", Number)
+            CType(m.Modifier, FrameModifier).ApplyModifier(b, m.Properties)
         Next
         Return b
     End Function

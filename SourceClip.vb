@@ -1,39 +1,20 @@
 ﻿Public MustInherit Class SourceClip
-    Public Function GetVar(Name As String) As Object
-        If Properties.ContainsKey(Name) Then
-            Return Properties(Name)
-        Else
-            Return Nothing
-        End If
-    End Function
-    Public Sub SetVar(Name As String, Value As Object)
-        If Properties.ContainsKey(Name) Then
-            Properties(Name) = Value
-        Else
-            Properties.Add(Name, Value)
-        End If
-    End Sub
-    Protected _properties As New Dictionary(Of String, Object)
-    Public ReadOnly Property Properties As Dictionary(Of String, Object)
-        Get
-            Return _properties
-        End Get
-    End Property
+    Public Properties As New Properties
     Public Loader As SourceLoader
     Public Property Path As String
         Set(value As String)
-            SetVar("Path", value)
+            Properties.SetVar("Path", value)
         End Set
         Get
-            Return GetVar("Path")
+            Return Properties.GetVar("Path")
         End Get
     End Property
     Public Property Length As String
         Set(value As String)
-            SetVar("Length", value)
+            Properties.SetVar("Length", value)
         End Set
         Get
-            Return GetVar("Length")
+            Return Properties.GetVar("Length")
         End Get
     End Property
 End Class
