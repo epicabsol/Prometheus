@@ -58,6 +58,8 @@
       <HintPath>..\GlassForm\GlassForm\bin\Debug\GlassForm.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
@@ -87,6 +89,9 @@
   <ItemGroup>
     <Compile Include="BuiltInModifiers.vb" />
     <Compile Include="Clip.vb" />
+    <Compile Include="Core Plugin\AVIFileLoader.vb" />
+    <Compile Include="Core Plugin\CorePlugin.vb" />
+    <Compile Include="Core Plugin\ImageSequenceLoader.vb" />
     <Compile Include="Cursors.vb" />
     <Compile Include="Extensibility.vb" />
     <Compile Include="frmMain.vb">
@@ -96,12 +101,19 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRender.Designer.vb">
+      <DependentUpon>frmRender.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRender.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmYesNoCancel.Designer.vb">
       <DependentUpon>frmYesNoCancel.vb</DependentUpon>
     </Compile>
     <Compile Include="frmYesNoCancel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Generator.vb" />
     <Compile Include="IProperties.vb" />
     <Compile Include="Modifier.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -126,6 +138,7 @@
     <Compile Include="Controls\DisplayControl.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RenderFormats.vb" />
     <Compile Include="SourceClip.vb" />
     <Compile Include="Controls\TrackerControl.vb">
       <SubType>Component</SubType>
@@ -135,6 +148,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRender.resx">
+      <DependentUpon>frmRender.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmYesNoCancel.resx">
       <DependentUpon>frmYesNoCancel.vb</DependentUpon>
