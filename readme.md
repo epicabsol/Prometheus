@@ -43,7 +43,7 @@ To Do (in no particular order)
 -MEF Plugins
 -Modifier Stack Panel
 -Modifier Property Window
--Project File Serialization
+-Project File Serialization (completed without audio support)
 -Cursor changing (Frustrating!!!!)
 -Audio Playback
 
