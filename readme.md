@@ -50,7 +50,7 @@ To Do (in no particular order)
 Notes
 -----
 
--This is my first GitHub Project.
--The #Const s in frmMain.vb and frmMain.Designer.vb are for an Aero Glass implementation I've been working on, but it's terribly buggy, so develop with it off, please.
--Maybe more source formats could be used by convering them into a temp folder with ffdshow. (sounds easier and more promising than finding a .NET library for each.)
--Prometheus makes heavy use of my Xenon project, which is a set of cooler looking (IMHO) Windows Forms controls, and also is not perfect.
+- This is my first GitHub Project.
+- The #Const s in frmMain.vb and frmMain.Designer.vb are for an Aero Glass implementation I've been working on, but it's terribly buggy, so develop with it off, please.
+- Maybe more source formats could be used by convering them into a temp folder with ffdshow. (sounds easier and more promising than finding a .NET library for each.)
+- Prometheus makes heavy use of my Xenon project, which is a set of cooler looking (IMHO) Windows Forms controls, and also is not perfect.
