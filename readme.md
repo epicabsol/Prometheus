@@ -29,23 +29,23 @@ How To Use
 To Do (in no particular order)
 ------------------------------
 
--MAKE COMPOSITING / PLAYBACK FASTER (Help, please!)
--Video Importers:
--AVI
--MP4
--GIF
--Modifiers
--Rendering to AVI and PNG sequence
--Audio Clips
--Generator Clips
--Clip property window
--Limit preview FPS
--MEF Plugins
--Modifier Stack Panel
--Modifier Property Window
--Project File Serialization (completed without audio support)
--Cursor changing (Frustrating!!!!)
--Audio Playback
+- MAKE COMPOSITING / PLAYBACK FASTER (Help, please!)
+- Video Importers:
+- AVI
+- MP4
+- GIF
+- Modifiers
+- Rendering to AVI and PNG sequence
+- Audio Clips
+- Generator Clips
+- Clip property window
+- Limit preview FPS
+- MEF Plugins
+- Modifier Stack Panel
+- Modifier Property Window
+- Project File Serialization (completed without audio support)
+- Cursor changing (Frustrating!!!!)
+- Playback
 
 Notes
 -----
