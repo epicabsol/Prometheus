@@ -32,6 +32,9 @@ Friend Class PluginManager
     Public Sub LoadPlugins()
         Dim catalog As New AggregateCatalog
         catalog.Catalogs.Add(New AssemblyCatalog(GetType(Plugins).Assembly))
+        If Not IO.Directory.Exists("plugins\") Then
+            IO.Directory.CreateDirectory("plugins\")
+        End If
         catalog.Catalogs.Add(New DirectoryCatalog("plugins\"))
         Container = New CompositionContainer(catalog)
         Try

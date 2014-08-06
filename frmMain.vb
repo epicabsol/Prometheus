@@ -59,7 +59,6 @@ Public Class frmMain
         DoubleBuffered = True
 #End If
         Project = New PrometheusProject
-        RegisterDefaultLoaders()
         Plugins.LoadPlugins()
         SplitContainer3.Panel2MinSize = My.Resources.TabSelected.Width * PalleteTabStrip1.Tabs.Count
 

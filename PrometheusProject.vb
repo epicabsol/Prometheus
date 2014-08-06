@@ -163,7 +163,7 @@ Public Class PrometheusProject
         Return Modifier.ID
     End Function
     Public Shared Function GetModifier(ID As String) As IModifier
-        For Each m As IModifier In Modifiers.Modifiers
+        For Each m As IModifier In Plugins.Modifiers
             If m.ID = ID Then
                 Return m
             End If

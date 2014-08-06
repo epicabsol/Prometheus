@@ -87,7 +87,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuiltInModifiers.vb" />
     <Compile Include="Clip.vb" />
     <Compile Include="Core Plugin\AVIFileLoader.vb" />
     <Compile Include="Core Plugin\CorePlugin.vb" />
