@@ -61,9 +61,9 @@ Public Class PrometheusProject
                     Dim modcollection As XmlElement = vc.Item("Modifiers")
                     For Each mel As XmlElement In modcollection.ChildNodes
                         If mel.Name = "Modifier" Then
-                            Dim newbinding As New ModifierBinding
-                            newbinding.Modifier = GetModifier(mel.GetAttribute("ModID"))
-                            newbinding.Properties = ReadDataNode(mel.Item("Data"))
+                            Dim newmod As IModifierInstance
+                            newmod = GetModifier(mel.GetAttribute("ModID")).MakeInstance(newclip)
+                            newmod.Properties = ReadDataNode(mel.Item("Data"))
                         End If
                     Next
                 End If
@@ -108,9 +108,9 @@ Public Class PrometheusProject
                 vcnode.SetAttribute("EndCrop", vc.CropEnd)
                 vcnode.SetAttribute("Track", vc.Track)
                 Dim modcollection As XmlElement = doc.CreateElement("Modifiers")
-                For Each m As ModifierBinding In vc.Modifiers
+                For Each m As IModifierInstance In vc.Modifiers
                     Dim modnode As XmlElement = doc.CreateElement("Modifier")
-                    modnode.SetAttribute("ModID", m.Modifier.ID)
+                    modnode.SetAttribute("ModID", m.Source.ID)
                     Dim dataelement As XmlElement = BuildDataNode(doc, m.Properties)
                     modnode.AppendChild(dataelement)
                     modcollection.AppendChild(modnode)
@@ -159,11 +159,11 @@ Public Class PrometheusProject
             Return -1
         End If
     End Function
-    Public Shared Function GetModifier(Modifier As IModifier) As String
+    Public Shared Function GetModifier(Modifier As IModifierSource) As String
         Return Modifier.ID
     End Function
-    Public Shared Function GetModifier(ID As String) As IModifier
-        For Each m As IModifier In Plugins.Modifiers
+    Public Shared Function GetModifier(ID As String) As IModifierSource
+        For Each m As IModifierSource In Plugins.Modifiers
             If m.ID = ID Then
                 Return m
             End If

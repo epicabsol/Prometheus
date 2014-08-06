@@ -57,7 +57,10 @@
                     frmMain.XenonTiler1.Items.Add(newtile)
                 Next
             Case "Modifiers"
-
+                For Each m As IModifierSource In Plugins.Modifiers
+                    Dim newtile As New Xenon.XenonTile(m.Thumbnail, m.ID)
+                    frmMain.XenonTiler1.Items.Add(newtile)
+                Next
             Case "Generators"
 
             Case Else

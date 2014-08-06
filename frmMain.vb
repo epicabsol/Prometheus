@@ -265,14 +265,23 @@ Public Class frmMain
 
     Private Sub XenonTiler1_MouseMove(e As Xenon.TilerMouseEventArgs) Handles XenonTiler1.MouseMove
         If MouseButtons = Windows.Forms.MouseButtons.Left Then
-            If XenonTiler1.Items.IndexOf(e.Tile) > Project.SourceVideoClips.Count Then
-                'it is sound
+            Select Case PalleteTabStrip1.Tabs(PalleteTabStrip1.CurrentTabIndex).Text
+                Case "Sources"
+                    If XenonTiler1.Items.IndexOf(e.Tile) > Project.SourceVideoClips.Count Then
+                        'it is sound
 
-            Else
-                'it is video
-                Dim newclip As VideoClip = Project.SourceVideoClips(XenonTiler1.Items.IndexOf(e.Tile)).MakeClip(FrameNumber)
-                DoDragDrop(newclip, DragDropEffects.Link)
-            End If
+                    Else
+                        'it is video
+                        Dim newclip As VideoClip = Project.SourceVideoClips(XenonTiler1.Items.IndexOf(e.Tile)).MakeClip(FrameNumber)
+                        DoDragDrop(newclip, DragDropEffects.Link)
+                    End If
+
+                Case "Modifiers"
+                    Dim themod As IModifierSource = Plugins.Modifiers(XenonTiler1.Items.IndexOf(e.Tile))
+                    DoDragDrop(themod, DragDropEffects.Link)
+                Case "Generators"
+
+            End Select
         End If
     End Sub
 

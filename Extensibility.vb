@@ -10,7 +10,7 @@ End Class
 
 
 Public Module Plugins
-    Public Modifiers As New List(Of IModifier)
+    Public Modifiers As New List(Of IModifierSource)
     Public Generators As New List(Of Generator)
     Public Registrar As New Registrar
     Private _plugins As New List(Of Plugin)
@@ -54,7 +54,7 @@ Friend Class PluginManager
 End Class
 
 Public Class Registrar
-    Public Sub RegisterModifier(Modifier As IModifier)
+    Public Sub RegisterModifier(Modifier As IModifierSource)
         If Not Modifiers.Contains(Modifier) Then
             Modifiers.Add(Modifier)
         End If

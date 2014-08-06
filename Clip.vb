@@ -1,4 +1,5 @@
 ﻿Public Class Clip
+    Public Modifiers As New List(Of IModifierInstance)
     Public Properties As New Properties
     Public Shared Comparer As New ClipTrackComparer
     ''' <summary>
@@ -86,11 +87,6 @@
     Public Source As SourceClip
 End Class
 
-Public Class ModifierBinding
-    Public Modifier As IModifier
-    Public Properties As Properties
-End Class
-
 Public Class ClipTrackComparer
     Implements IComparer(Of Clip)
     Public Function Compare(x As Clip, y As Clip) As Integer Implements IComparer(Of Clip).Compare
@@ -100,7 +96,6 @@ End Class
 
 Public Class VideoClip
     Inherits Clip
-    Public Modifiers As New List(Of ModifierBinding)
     Public Speed As Double = 1.0
     Public Property X As Single
         Get
@@ -168,9 +163,9 @@ Public Class VideoClip
     End Property
     Public Function GetFinalFrame(Number As Long) As Bitmap
         Dim b As New Bitmap(Source.GetRawFrame(Math.Floor(Number * Speed)))
-        For Each m As ModifierBinding In Modifiers
+        For Each m As IModifierInstance In Modifiers
             m.Properties.SetVar("Frame", Number)
-            CType(m.Modifier, FrameModifier).ApplyModifier(b, m.Properties)
+            m.ApplyModifier(b)
         Next
         Return b
     End Function

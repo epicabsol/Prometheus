@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="Clip.vb" />
     <Compile Include="Core Plugin\AVIFileLoader.vb" />
+    <Compile Include="Core Plugin\ChromaKeyModifier.vb" />
     <Compile Include="Core Plugin\CorePlugin.vb" />
     <Compile Include="Core Plugin\ImageSequenceLoader.vb" />
     <Compile Include="Cursors.vb" />
@@ -194,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Prometheus Icon.ico" />
+    <None Include="Resources\chromakey.png" />
     <Content Include="Resources\cursor_addclip.cur">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -266,9 +266,26 @@ Public Class TrackerControl
             frmMain.Project.VideoClips.Add(newclip)
         End If
 
+        Dim hitclip As Clip = HitTestClips(PointToClient(New Point(e.X, e.Y)).X, PointToClient(New Point(e.X, e.Y)).Y)
+        If Not IsNothing(hitclip) Then
+            For Each ms As IModifierSource In Plugins.Modifiers
+                If e.Data.GetDataPresent(ms.GetType().FullName) Then
+                    Dim source As IModifierSource = CType(e.Data.GetData("Prometheus.IModifierSource"), IModifierSource)
+
+                    If source.ApplicableToClip(hitclip) Then
+                        Dim newmod As IModifierInstance = source.MakeInstance(hitclip)
+                        hitclip.Modifiers.Add(newmod)
+                    End If
+                End If
+            Next
+        End If
+
     End Sub
 
     Private Sub TrackerControl_DragEnter(sender As Object, e As DragEventArgs) Handles Me.DragEnter
+        For Each ms As IModifierSource In Plugins.Modifiers
+            If e.Data.GetDataPresent(ms.GetType().FullName) Then e.Effect = DragDropEffects.Link
+        Next
         If e.Data.GetDataPresent("Prometheus.VideoClip") Then
             e.Effect = DragDropEffects.Link
         End If

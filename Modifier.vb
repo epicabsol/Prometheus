@@ -1,46 +1,54 @@
 ﻿
-Public Interface IModifier
-    ReadOnly Property TargetType As String
+Public Interface IModifierSource
+    ReadOnly Property TargetTypeName As String
     ReadOnly Property ID As String
+    ReadOnly Property Thumbnail As Bitmap
+    Function MakeInstance(Clip As Clip) As IModifierInstance
+    Function ApplicableToClip(Clip As Clip) As Boolean
 End Interface
 
-Public Class Modifier(Of T)
-    Implements IModifier
-    Public Target As Clip
-    Public Delegate Sub ModifierDelegate(Input As T, Properties As Properties)
-    Public ModifierSub As ModifierDelegate
+Public Interface IModifierInstance
+    Sub ApplyModifier(input As Object)
+    ReadOnly Property Source As IModifierSource
+    Property Properties As Properties
+End Interface
+
+Public MustInherit Class ModifierInstance(Of T)
+    Implements IModifierInstance
+    Protected MustOverride Sub ApplyModifier(input As T)
+    Public Sub ApplyModifier(input As Object) Implements IModifierInstance.ApplyModifier
+        ApplyModifier(input)
+    End Sub
+    Public MustOverride ReadOnly Property Source As IModifierSource Implements IModifierInstance.Source
+    Private _properties As New Properties
+    Public Property Properties As Properties Implements IModifierInstance.Properties
+        Get
+            Return _properties
+        End Get
+        Set(value As Properties)
+            _properties = value
+        End Set
+    End Property
+End Class
+
+Public MustInherit Class ModifierSource(Of T)
+    Implements IModifierSource
     Public FrameNumber As Long
-    Public Sub ApplyModifier(Input As T, Properties As Properties)
-        ModifierSub.Invoke(Input, Properties)
-    End Sub
-    Public Sub New(ApplyFunction As ModifierDelegate, ID As String)
-        ModifierSub = ApplyFunction
-        _id = ID
-    End Sub
-    Private _id As String
-    Public ReadOnly Property ID As String Implements IModifier.ID
+    Public ReadOnly Property ID As String Implements IModifierSource.ID
         Get
             Return _id
         End Get
     End Property
-
-    Public ReadOnly Property TargetType As String Implements IModifier.TargetType
+    Public ReadOnly Property TargetTypeName As String Implements IModifierSource.TargetTypeName
         Get
             Return GetType(T).Name
         End Get
     End Property
-End Class
-
-Public Class FrameModifier
-    Inherits Modifier(Of Bitmap)
-    Public Sub New(applyFunction As ModifierDelegate, id As String)
-        MyBase.New(applyFunction, id)
-    End Sub
-End Class
-
-Public Class AudioModifier
-    Inherits Modifier(Of Double)
-    Public Sub New(applyFunction As ModifierDelegate, id As String)
-        MyBase.New(applyFunction, id)
-    End Sub
+    Protected MustOverride ReadOnly Property _id As String
+    Public MustOverride ReadOnly Property Thumbnail As Bitmap Implements IModifierSource.Thumbnail
+    Public MustOverride Function ApplicableToClip(Clip As Clip) As Boolean Implements IModifierSource.ApplicableToClip
+    Protected MustOverride Function MakeInstanceInternal(Clip As Clip) As ModifierInstance(Of T)
+    Public Function MakeInstance(Clip As Clip) As IModifierInstance Implements IModifierSource.MakeInstance
+        Return MakeInstanceInternal(Clip)
+    End Function
 End Class
