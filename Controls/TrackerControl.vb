@@ -264,13 +264,14 @@ Public Class TrackerControl
             newclip.StartFrame = PixelLocation(PointToClient(New Point(e.X, e.Y)).X)
             newclip.Track = (PointToClient(New Point(e.X, e.Y)).Y + ViewYOffsetPixels) \ TrackHeight
             frmMain.Project.VideoClips.Add(newclip)
+            Exit Sub
         End If
 
         Dim hitclip As Clip = HitTestClips(PointToClient(New Point(e.X, e.Y)).X, PointToClient(New Point(e.X, e.Y)).Y)
         If Not IsNothing(hitclip) Then
             For Each ms As IModifierSource In Plugins.Modifiers
                 If e.Data.GetDataPresent(ms.GetType().FullName) Then
-                    Dim source As IModifierSource = CType(e.Data.GetData("Prometheus.IModifierSource"), IModifierSource)
+                    Dim source As IModifierSource = CType(e.Data.GetData(ms.GetType().FullName), IModifierSource)
 
                     If source.ApplicableToClip(hitclip) Then
                         Dim newmod As IModifierInstance = source.MakeInstance(hitclip)

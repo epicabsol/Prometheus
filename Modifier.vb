@@ -15,9 +15,9 @@ End Interface
 
 Public MustInherit Class ModifierInstance(Of T)
     Implements IModifierInstance
-    Protected MustOverride Sub ApplyModifier(input As T)
+    Protected MustOverride Sub ApplyModifierSpecific(input As T)
     Public Sub ApplyModifier(input As Object) Implements IModifierInstance.ApplyModifier
-        ApplyModifier(input)
+        ApplyModifierSpecific(input)
     End Sub
     Public MustOverride ReadOnly Property Source As IModifierSource Implements IModifierInstance.Source
     Private _properties As New Properties
