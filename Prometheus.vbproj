@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Prometheus Icon.ico" />
+    <None Include="Resources\timemarker.png" />
     <None Include="Resources\chromakey.png" />
     <Content Include="Resources\cursor_addclip.cur">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

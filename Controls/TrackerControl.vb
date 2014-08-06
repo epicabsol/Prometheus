@@ -1,6 +1,7 @@
 ﻿#Const DoubleBuffered = True
 Public Class TrackerControl
     Inherits Control
+    Public Const TimeBoxHeight As Integer = 12
     Public Shadows ReadOnly Property CanFocus() As Boolean
         Get
             Return True
@@ -78,12 +79,13 @@ Public Class TrackerControl
         g = e.Graphics
 #End If
         g.Clear(BackColor)
+        g.TextRenderingHint = Drawing.Text.TextRenderingHint.ClearTypeGridFit
 
         Dim darkpen As New Pen(Xenon.MakeGrey(40))
         Dim lightpen As New Pen(Xenon.MakeGrey(80))
         Dim x As Long
+        Dim f As Long
         If Scale >= 3 Then
-            Dim f As Long
 
             For f = FirstFrameShown To Math.Min(LastFrameShown, frmMain.Length - 1)
                 x = FrameLocation(f)
@@ -110,18 +112,30 @@ Public Class TrackerControl
                 b.Dispose()
             Next
 
+            Dim timeboxbrush As New SolidBrush(ForeColor)
+            g.FillRectangle(timeboxbrush, 0, Height - timeboxheight, Width, timeboxheight)
+            timeboxbrush.Dispose()
+
+            For f = FirstFrameShown To Math.Min(LastFrameShown, frmMain.Length - 1)
+                If f Mod FrameEmphasisInterval = 0 Then
+                    g.DrawString(f, SystemFonts.IconTitleFont, Brushes.White, FrameLocation(f) - 4, Height - 14)
+                End If
+            Next
+
             Dim TimePen As New Pen(Color.FromArgb(255, 32, 0), 3)
             g.DrawLine(TimePen, FrameLocation(frmMain.FrameNumber), 0, FrameLocation(frmMain.FrameNumber), Height - 1)
             TimePen.Dispose()
+
+            g.DrawImage(My.Resources.timemarker, FrameLocation(frmMain.FrameNumber) - 1, Height - 13, 12, 12)
         End If
         darkpen.Dispose()
         lightpen.Dispose()
 
 #If DoubleBuffered Then
-            Buffer.Render()
-            g.Dispose()
-            Buffer.Dispose()
-            BufferContext.Dispose()
+        Buffer.Render()
+        g.Dispose()
+        Buffer.Dispose()
+        BufferContext.Dispose()
 #End If
     End Sub
     Public ReadOnly Property TrackCount As Long
@@ -199,6 +213,12 @@ Public Class TrackerControl
                     SelectedClip = HitClip
             End Select
         End If
+        Dim timebarrect As New Rectangle(0, Height - TimeBoxHeight, Width, TimeBoxHeight)
+        If timebarrect.Contains(e.Location) Then
+            Dim f As Long = PixelLocation(e.X)
+            frmMain.FrameNumber = f
+            frmMain.RefreshPreview()
+        End If
         Invalidate()
         MouseDown = True
     End Sub
@@ -220,6 +240,12 @@ Public Class TrackerControl
                 Case Clip.ClipPart.ScaleHandle
 
             End Select
+            Dim timebarrect As New Rectangle(0, Height - TimeBoxHeight, Width, TimeBoxHeight)
+            If timebarrect.Contains(e.Location) Then
+                Dim f As Long = PixelLocation(e.X)
+                frmMain.FrameNumber = f
+                frmMain.RefreshPreview()
+            End If
         End If
         Invalidate()
     End Sub
