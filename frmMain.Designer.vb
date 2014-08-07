@@ -41,6 +41,7 @@ Partial Class frmMain
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClipToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RenderMovieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
@@ -52,22 +53,22 @@ Partial Class frmMain
         Me.cmdAddSource = New Xenon.XenonButton()
         Me.XenonTiler1 = New Xenon.XenonTiler()
         Me.XenonToolStrip1 = New Xenon.XenonToolStrip()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
-        Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
+        Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
         Me.cmdEnd = New Xenon.XenonButton()
         Me.cmdNextFrame = New Xenon.XenonButton()
         Me.cmdPlay = New Xenon.XenonButton()
         Me.cmdBackOneFrame = New Xenon.XenonButton()
         Me.cmdRewind = New Xenon.XenonButton()
+        Me.ModifierStackControl1 = New Prometheus.ModifierStackControl()
         Me.PalleteTabStrip1 = New Prometheus.PalleteTabStrip()
         Me.DisplayControl1 = New Prometheus.DisplayControl()
         Me.TrackerControl1 = New Prometheus.TrackerControl()
-        Me.RenderMovieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.XenonMenu1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -78,6 +79,7 @@ Partial Class frmMain
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
         Me.XenonToolStrip1.SuspendLayout()
@@ -90,7 +92,7 @@ Partial Class frmMain
         Me.XenonMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ClipToolStripMenuItem, Me.RenderToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.XenonMenu1.Location = New System.Drawing.Point(63, 29)
         Me.XenonMenu1.Name = "XenonMenu1"
-        Me.XenonMenu1.Size = New System.Drawing.Size(320, 24)
+        Me.XenonMenu1.Size = New System.Drawing.Size(228, 24)
         Me.XenonMenu1.TabIndex = 5
         Me.XenonMenu1.Text = "XenonMenu1"
         '
@@ -166,6 +168,12 @@ Partial Class frmMain
         Me.RenderToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.RenderToolStripMenuItem.Text = "Render"
         '
+        'RenderMovieToolStripMenuItem
+        '
+        Me.RenderMovieToolStripMenuItem.Name = "RenderMovieToolStripMenuItem"
+        Me.RenderMovieToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.RenderMovieToolStripMenuItem.Text = "Render Movie..."
+        '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem1, Me.ToolStripMenuItem1, Me.AboutToolStripMenuItem})
@@ -176,18 +184,18 @@ Partial Class frmMain
         'HelpToolStripMenuItem1
         '
         Me.HelpToolStripMenuItem1.Name = "HelpToolStripMenuItem1"
-        Me.HelpToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.HelpToolStripMenuItem1.Size = New System.Drawing.Size(108, 22)
         Me.HelpToolStripMenuItem1.Text = "Help..."
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(105, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'SplitContainer1
@@ -242,6 +250,10 @@ Partial Class frmMain
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer3.Name = "SplitContainer3"
+        '
+        'SplitContainer3.Panel1
+        '
+        Me.SplitContainer3.Panel1.Controls.Add(Me.ModifierStackControl1)
         '
         'SplitContainer3.Panel2
         '
@@ -305,10 +317,48 @@ Partial Class frmMain
         Me.XenonToolStrip1.TabIndex = 3
         Me.XenonToolStrip1.Text = "XenonToolStrip1"
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton1.Text = "ToolStripButton1"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton2.Text = "ToolStripButton2"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton3.Text = "ToolStripButton3"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripButton4.Image = Global.Prometheus.My.Resources.Resources.cog
+        Me.ToolStripButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(104, 22)
+        Me.ToolStripButton4.Text = "Clip Properties"
+        Me.ToolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         '
         'VScrollBar1
         '
@@ -331,44 +381,6 @@ Partial Class frmMain
         Me.HScrollBar1.Name = "HScrollBar1"
         Me.HScrollBar1.Size = New System.Drawing.Size(870, 17)
         Me.HScrollBar1.TabIndex = 1
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton1.Text = "ToolStripButton1"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton2.Text = "ToolStripButton2"
-        '
-        'ToolStripButton3
-        '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton3.Text = "ToolStripButton3"
-        '
-        'ToolStripButton4
-        '
-        Me.ToolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripButton4.Image = Global.Prometheus.My.Resources.Resources.cog
-        Me.ToolStripButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(104, 22)
-        Me.ToolStripButton4.Text = "Clip Properties"
-        Me.ToolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         '
         'cmdEnd
         '
@@ -430,6 +442,18 @@ Partial Class frmMain
         Me.cmdRewind.TabIndex = 0
         Me.cmdRewind.UseVisualStyleBackColor = True
         '
+        'ModifierStackControl1
+        '
+        Me.ModifierStackControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.ModifierStackControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ModifierStackControl1.ItemHeight = 22
+        Me.ModifierStackControl1.Location = New System.Drawing.Point(0, 0)
+        Me.ModifierStackControl1.Name = "ModifierStackControl1"
+        Me.ModifierStackControl1.ScrollOffsetPercent = 0.0!
+        Me.ModifierStackControl1.Size = New System.Drawing.Size(196, 212)
+        Me.ModifierStackControl1.TabIndex = 7
+        Me.ModifierStackControl1.Text = "ModifierStackControl1"
+        '
         'PalleteTabStrip1
         '
         Me.PalleteTabStrip1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -468,12 +492,6 @@ Partial Class frmMain
         Me.TrackerControl1.ViewXOffsetPercentage = 0.0R
         Me.TrackerControl1.ViewYOffsetPixels = 0
         '
-        'RenderMovieToolStripMenuItem
-        '
-        Me.RenderMovieToolStripMenuItem.Name = "RenderMovieToolStripMenuItem"
-        Me.RenderMovieToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
-        Me.RenderMovieToolStripMenuItem.Text = "Render Movie..."
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -503,6 +521,7 @@ Partial Class frmMain
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.ResumeLayout(False)
+        Me.SplitContainer3.Panel1.ResumeLayout(False)
         Me.SplitContainer3.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.ResumeLayout(False)
@@ -552,5 +571,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
     Friend WithEvents VScrollBar2 As System.Windows.Forms.VScrollBar
     Friend WithEvents RenderMovieToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ModifierStackControl1 As Prometheus.ModifierStackControl
 
 End Class

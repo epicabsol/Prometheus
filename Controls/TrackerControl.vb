@@ -219,6 +219,7 @@ Public Class TrackerControl
             frmMain.FrameNumber = f
             frmMain.RefreshPreview()
         End If
+        frmMain.ModifierStackControl1.Invalidate()
         Invalidate()
         MouseDown = True
     End Sub
@@ -306,6 +307,7 @@ Public Class TrackerControl
                 End If
             Next
         End If
+        frmMain.ModifierStackControl1.Invalidate()
 
     End Sub
 

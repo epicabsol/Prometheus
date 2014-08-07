@@ -38,14 +38,11 @@ To Do (in no particular order)
 - Rendering to AVI and PNG sequence
 - Audio Clips
 - Generator Clips
-- Clip property window
 - Limit preview FPS
-- MEF Plugins
 - Modifier Stack Panel
 - Modifier Property Window
 - Project File Serialization (completed without audio support)
 - Cursor changing (Frustrating!!!!)
-- Playback
 
 Notes
 -----
