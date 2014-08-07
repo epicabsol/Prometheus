@@ -11,9 +11,9 @@ Prometheus automatically composites the tracks from top to bottom, just like an 
 Interface (not complete)
 ---------
 
--Menu bar: Might replace with a floating form like Office 2007 (Shouldn't look identical)
--Top Left Pane: Modifier Stack pane (Incomplete)
--Top Center pane: Sources(for video/audio) tab, Modifiers (NYI) tab, and Generators (Also NYI) tab
+-Menu bar: Might replace with a floating form like Office 2007 (Shouldn't look identical) (Working on it now)
+-Top Left Pane: Modifier Stack pane
+-Top Center pane: Sources(for video/audio) tab, Modifiers tab, and Generators (Also NYI) tab
 -Top Right Pane: Preview
 -Bottom Pane: Track\Clip Editor
 -Bottom-er Buttons: Playback controls
@@ -43,6 +43,11 @@ To Do (in no particular order)
 - Modifier Property Window
 - Project File Serialization (completed without audio support)
 - Cursor changing (Frustrating!!!!)
+- Pseudo-clipboard for clips
+- Cooler main menu
+- Context menu for clips with Remove, Duplicate, Select Source, Open Location options
+- Re-theme UI to match the menu somehow
+- Add a video converter window via ffmpeg
 
 Notes
 -----

@@ -2,6 +2,7 @@
 Imports System.Drawing.Drawing2D
 #Const AeroEnabled = False
 Public Class frmMain
+    Public Const UseCoolMenu As Boolean = True
     Public FrameNumber As Long = 0
     Public FPS As Single = 24
     Public Length As Long = 500
@@ -58,6 +59,9 @@ Public Class frmMain
         SplitContainer1.Width = Me.Width - (Padding.Left + Padding.Right)
         DoubleBuffered = True
 #End If
+        If UseCoolMenu Then
+            XenonMenu1.Hide()
+        End If
         Project = New PrometheusProject
         Plugins.LoadPlugins()
         SplitContainer3.Panel2MinSize = My.Resources.TabSelected.Width * PalleteTabStrip1.Tabs.Count
@@ -70,7 +74,7 @@ Public Class frmMain
         MyBase.OnMouseMove(e)
         Invalidate()
     End Sub
-    Private MainButtonHover As Boolean = False
+    Public MainButtonHover As Boolean = False
 
     Private Sub frmMain_MouseLeave(sender As Object, e As EventArgs) Handles Me.MouseLeave
         MainButtonHover = False
@@ -94,6 +98,15 @@ Public Class frmMain
 #If AeroEnabled Then
     Private Sub frmMain_NonClientPaint(e As PaintEventArgs) Handles Me.NonClientPaint
 #Else
+
+    Private Sub frmMain_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
+        If UseCoolMenu Then
+            If MainButtonHover Then
+                frmMenu.Show()
+                frmMenu.Location = PointToScreen(New Point(8, 40))
+            End If
+        End If
+    End Sub
     Private Sub frmMain_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
 #End If
         Dim g As Graphics = e.Graphics
@@ -101,11 +114,11 @@ Public Class frmMain
 #If AeroEnabled Then
         g.Clear(Color.Transparent)
 #End If
-        'If MainButtonHover Then
-        g.DrawImage(My.Resources.Promethean_Button_Filled_x48, 8, 8, 48, 48)
-        'Else
-        'g.DrawImage(My.Resources.Promethean_Button_x48, 8, 8, 48, 48)
-        'End If
+        If MainButtonHover OrElse (UseCoolMenu = False) OrElse frmMenu.Visible = True Then
+            g.DrawImage(My.Resources.Promethean_Button_Filled_x48, 8, 8, 48, 48)
+        Else
+            g.DrawImage(My.Resources.Promethean_Button_NoGlow_x48, 8, 8, 48, 48)
+        End If
         Dim f As New Font(SystemFonts.CaptionFont.FontFamily.Name, 13)
         g.DrawString("Prometheus", f, Brushes.White, 63, 3)
         f.Dispose()
@@ -322,6 +335,12 @@ Public Class frmMain
     End Sub
 #Region "Project IO"
 
+    Public Sub SaveCopy()
+        Dim oldsavepath As String = Project.SavePath
+        SaveAs()
+        Project.SavedYet = False
+        Project.SavePath = oldsavepath
+    End Sub
     Public Sub TrySave()
         If Project.SavedYet = False Then
             SaveAs()
@@ -329,7 +348,7 @@ Public Class frmMain
             Save()
         End If
     End Sub
-    Private Sub SaveAs()
+    Public Sub SaveAs()
         Dim browser As New SaveFileDialog
         browser.Filter = "Prometheus Project (*.pmp)|*.pmp"
         browser.ShowDialog()
@@ -337,7 +356,7 @@ Public Class frmMain
             Project.Save(browser.FileName)
         End If
     End Sub
-    Private Sub Save()
+    Public Sub Save()
         Project.Save(Project.SavePath)
     End Sub
     Public Sub IfSave()
@@ -368,6 +387,14 @@ Public Class frmMain
         PalleteTabStrip1.SetTab(0)
         RefreshPreview()
         Invalidate(True)
+    End Sub
+    Public Sub OpenCopy()
+        Open()
+        Project.SavedYet = False
+        Project.SavePath = ""
+    End Sub
+    Public Sub OpenFromInternet()
+        Throw New NotImplementedException("Opening from the internet has not been completed yet. =(")
     End Sub
     Public Sub NewProject()
         If Project.Dirty Or Project.SavedYet = False Then

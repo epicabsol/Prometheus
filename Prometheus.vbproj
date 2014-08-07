@@ -88,6 +88,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clip.vb" />
+    <Compile Include="frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmMenu.Designer.vb">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPropertyEditor.Designer.vb">
       <DependentUpon>frmPropertyEditor.vb</DependentUpon>
     </Compile>
@@ -121,6 +133,8 @@
     </Compile>
     <Compile Include="Generator.vb" />
     <Compile Include="IProperties.vb" />
+    <Compile Include="Menu\MenuEntry.vb" />
+    <Compile Include="Menu\MenuItems.vb" />
     <Compile Include="Modifier.vb" />
     <Compile Include="Controls\ModifierStackControl.vb">
       <SubType>Component</SubType>
@@ -155,6 +169,12 @@
     <Compile Include="SourceLoader.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmMenu.resx">
+      <DependentUpon>frmMenu.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPropertyEditor.resx">
       <DependentUpon>frmPropertyEditor.vb</DependentUpon>
     </EmbeddedResource>
@@ -207,8 +227,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Prometheus Icon.ico" />
+    <None Include="Resources\MenuItem_Tools.png" />
+    <None Include="Resources\MenuItem_Convert.png" />
+    <None Include="Resources\MenuItem_GitHub.png" />
+    <None Include="Resources\MenuItem_SaveTo.png" />
+    <None Include="Resources\MenuItem_SaveAs.png" />
+    <None Include="Resources\MenuItem_Save.png" />
+    <None Include="Resources\MenuItem_OpenCopy.png" />
+    <None Include="Resources\Scissors.png" />
+    <None Include="Resources\Render.png" />
+    <None Include="Resources\MenuItem_Help.png" />
+    <None Include="Resources\MenuItem_About.png" />
+    <None Include="Resources\FloppyDisk.png" />
+    <None Include="Resources\MenuItem_OpenInternet.png" />
+    <None Include="Resources\MenuItem_Open.png" />
+    <None Include="Resources\MenuItem_NewFile.png" />
+    <None Include="Resources\Promethean Button Filled.png" />
+    <None Include="Resources\MenuItemSubPressed.png" />
+    <None Include="Resources\MenuItemSubHover.png" />
+    <None Include="Resources\MenuItemMainPressed.png" />
+    <None Include="Resources\MenuItemMainHover.png" />
+    <None Include="Resources\MenuRightPanel.png" />
+    <None Include="Resources\MenuLeftPanel.png" />
+    <None Include="Resources\MenuFooter.png" />
+    <None Include="Resources\MenuHeader.png" />
+    <None Include="Resources\Promethean Button NoGlow x48.png" />
     <None Include="Resources\timemarker.png" />
     <None Include="Resources\chromakey.png" />
+    <None Include="Resources\Clipboard.png" />
     <Content Include="Resources\cursor_addclip.cur">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

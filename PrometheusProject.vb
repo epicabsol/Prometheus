@@ -71,6 +71,7 @@ Public Class PrometheusProject
             'Audio Clips
 
             'Debugger.Break()
+            result.SavePath = File
         Catch ex As Exception
             MsgBox("Load failed.")
         End Try

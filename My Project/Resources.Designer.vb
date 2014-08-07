@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Clipboard() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Clipboard", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property cog() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("cog", resourceCulture)
@@ -106,6 +116,206 @@ Namespace My.Resources
         Friend ReadOnly Property handle_leftmove() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("handle_leftmove", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuFooter() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuFooter", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuHeader() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuHeader", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_About() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_About", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_Convert() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_Convert", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_GitHub() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_GitHub", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_Help() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_Help", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_NewFile() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_NewFile", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_Open() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_Open", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_OpenCopy() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_OpenCopy", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_OpenInternet() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_OpenInternet", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_Save() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_Save", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_SaveAs() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_SaveAs", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_SaveTo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_SaveTo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItem_Tools() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItem_Tools", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItemMainHover() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItemMainHover", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItemMainPressed() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItemMainPressed", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItemSubHover() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItemSubHover", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuItemSubPressed() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuItemSubPressed", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuLeftPanel() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuLeftPanel", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MenuRightPanel() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuRightPanel", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -173,6 +383,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Promethean_Button_Filled() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Promethean Button Filled", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Promethean_Button_Filled_x48() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Promethean_Button_Filled_x48", resourceCulture)
@@ -183,9 +403,39 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Promethean_Button_NoGlow_x48() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Promethean_Button_NoGlow_x48", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Promethean_Button_x48() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Promethean_Button_x48", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Render() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Render", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Scissors() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Scissors", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
