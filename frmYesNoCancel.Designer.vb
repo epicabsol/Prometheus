@@ -132,7 +132,7 @@ Partial Class frmYesNoCancel
         Me.MinimizeBox = False
         Me.Name = "frmYesNoCancel"
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Yes, No, Cancel"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
