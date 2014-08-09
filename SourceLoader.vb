@@ -8,13 +8,13 @@
     Private Loaders As New Dictionary(Of String, SourceLoader)
     Public SourceExtensions As New List(Of BrowsableFormat)
     Public Sub RegisterLoader(Extension As String, FormatDescription As String, Loader As SourceLoader)
-        If Not Loaders.ContainsKey(Extension) Then Loaders.Add(Extension, Loader)
-        Dim ext As New BrowsableFormat(Extension, FormatDescription)
+        If Not Loaders.ContainsKey(Extension.ToLower) Then Loaders.Add(Extension.ToLower, Loader)
+        Dim ext As New BrowsableFormat(Extension.ToLower, FormatDescription)
         If Not SourceExtensions.Contains(ext) Then SourceExtensions.Add(ext)
     End Sub
     Public Function GetLoader(Extension As String) As SourceLoader
-        If Loaders.ContainsKey(Extension) Then
-            Return Loaders(Extension)
+        If Loaders.ContainsKey(Extension.ToLower) Then
+            Return Loaders(Extension.ToLower)
         Else
             Return Nothing
         End If
