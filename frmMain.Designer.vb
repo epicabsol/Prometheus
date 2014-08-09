@@ -49,9 +49,12 @@ Partial Class frmMain
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.ModifierStackControl1 = New Prometheus.ModifierStackControl()
         Me.VScrollBar2 = New System.Windows.Forms.VScrollBar()
         Me.cmdAddSource = New Xenon.XenonButton()
+        Me.PalleteTabStrip1 = New Prometheus.PalleteTabStrip()
         Me.XenonTiler1 = New Xenon.XenonTiler()
+        Me.DisplayControl1 = New Prometheus.DisplayControl()
         Me.XenonToolStrip1 = New Xenon.XenonToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -60,15 +63,12 @@ Partial Class frmMain
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
         Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
+        Me.TrackerControl1 = New Prometheus.TrackerControl()
         Me.cmdEnd = New Xenon.XenonButton()
         Me.cmdNextFrame = New Xenon.XenonButton()
         Me.cmdPlay = New Xenon.XenonButton()
         Me.cmdBackOneFrame = New Xenon.XenonButton()
         Me.cmdRewind = New Xenon.XenonButton()
-        Me.ModifierStackControl1 = New Prometheus.ModifierStackControl()
-        Me.PalleteTabStrip1 = New Prometheus.PalleteTabStrip()
-        Me.DisplayControl1 = New Prometheus.DisplayControl()
-        Me.TrackerControl1 = New Prometheus.TrackerControl()
         Me.XenonMenu1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -266,6 +266,18 @@ Partial Class frmMain
         Me.SplitContainer3.SplitterDistance = 196
         Me.SplitContainer3.TabIndex = 1
         '
+        'ModifierStackControl1
+        '
+        Me.ModifierStackControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.ModifierStackControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ModifierStackControl1.ItemHeight = 22
+        Me.ModifierStackControl1.Location = New System.Drawing.Point(0, 0)
+        Me.ModifierStackControl1.Name = "ModifierStackControl1"
+        Me.ModifierStackControl1.ScrollOffsetPercent = 0.0!
+        Me.ModifierStackControl1.Size = New System.Drawing.Size(196, 212)
+        Me.ModifierStackControl1.TabIndex = 7
+        Me.ModifierStackControl1.Text = "ModifierStackControl1"
+        '
         'VScrollBar2
         '
         Me.VScrollBar2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -289,6 +301,17 @@ Partial Class frmMain
         Me.cmdAddSource.Text = "Add Source..."
         Me.cmdAddSource.UseVisualStyleBackColor = False
         '
+        'PalleteTabStrip1
+        '
+        Me.PalleteTabStrip1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PalleteTabStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.PalleteTabStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.PalleteTabStrip1.Name = "PalleteTabStrip1"
+        Me.PalleteTabStrip1.Size = New System.Drawing.Size(253, 35)
+        Me.PalleteTabStrip1.TabIndex = 0
+        Me.PalleteTabStrip1.Text = "PalleteTabStrip1"
+        '
         'XenonTiler1
         '
         Me.XenonTiler1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -307,6 +330,17 @@ Partial Class frmMain
         Me.XenonTiler1.TilePadding = CType(5, Long)
         Me.XenonTiler1.TileSize = New System.Drawing.Size(64, 64)
         Me.XenonTiler1.ViewOffset = CType(0, Long)
+        '
+        'DisplayControl1
+        '
+        Me.DisplayControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.DisplayControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DisplayControl1.ForeColor = System.Drawing.Color.Magenta
+        Me.DisplayControl1.Location = New System.Drawing.Point(0, 0)
+        Me.DisplayControl1.Name = "DisplayControl1"
+        Me.DisplayControl1.Size = New System.Drawing.Size(438, 212)
+        Me.DisplayControl1.TabIndex = 0
+        Me.DisplayControl1.Text = "DisplayControl1"
         '
         'XenonToolStrip1
         '
@@ -382,6 +416,22 @@ Partial Class frmMain
         Me.HScrollBar1.Size = New System.Drawing.Size(870, 17)
         Me.HScrollBar1.TabIndex = 1
         '
+        'TrackerControl1
+        '
+        Me.TrackerControl1.AllowDrop = True
+        Me.TrackerControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TrackerControl1.FrameEmphasisInterval = 6
+        Me.TrackerControl1.Location = New System.Drawing.Point(0, 24)
+        Me.TrackerControl1.Name = "TrackerControl1"
+        Me.TrackerControl1.Size = New System.Drawing.Size(869, 107)
+        Me.TrackerControl1.TabIndex = 0
+        Me.TrackerControl1.Text = "TrackerControl1"
+        Me.TrackerControl1.TrackHeight = 50.0!
+        Me.TrackerControl1.ViewXOffsetPercentage = 0.0R
+        Me.TrackerControl1.ViewYOffsetPixels = 0
+        '
         'cmdEnd
         '
         Me.cmdEnd.Disabled = True
@@ -442,56 +492,6 @@ Partial Class frmMain
         Me.cmdRewind.TabIndex = 0
         Me.cmdRewind.UseVisualStyleBackColor = True
         '
-        'ModifierStackControl1
-        '
-        Me.ModifierStackControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.ModifierStackControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ModifierStackControl1.ItemHeight = 22
-        Me.ModifierStackControl1.Location = New System.Drawing.Point(0, 0)
-        Me.ModifierStackControl1.Name = "ModifierStackControl1"
-        Me.ModifierStackControl1.ScrollOffsetPercent = 0.0!
-        Me.ModifierStackControl1.Size = New System.Drawing.Size(196, 212)
-        Me.ModifierStackControl1.TabIndex = 7
-        Me.ModifierStackControl1.Text = "ModifierStackControl1"
-        '
-        'PalleteTabStrip1
-        '
-        Me.PalleteTabStrip1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PalleteTabStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.PalleteTabStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.PalleteTabStrip1.Name = "PalleteTabStrip1"
-        Me.PalleteTabStrip1.Size = New System.Drawing.Size(253, 35)
-        Me.PalleteTabStrip1.TabIndex = 0
-        Me.PalleteTabStrip1.Text = "PalleteTabStrip1"
-        '
-        'DisplayControl1
-        '
-        Me.DisplayControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.DisplayControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DisplayControl1.ForeColor = System.Drawing.Color.Magenta
-        Me.DisplayControl1.Location = New System.Drawing.Point(0, 0)
-        Me.DisplayControl1.Name = "DisplayControl1"
-        Me.DisplayControl1.Size = New System.Drawing.Size(438, 212)
-        Me.DisplayControl1.TabIndex = 0
-        Me.DisplayControl1.Text = "DisplayControl1"
-        '
-        'TrackerControl1
-        '
-        Me.TrackerControl1.AllowDrop = True
-        Me.TrackerControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TrackerControl1.FrameEmphasisInterval = 6
-        Me.TrackerControl1.Location = New System.Drawing.Point(0, 24)
-        Me.TrackerControl1.Name = "TrackerControl1"
-        Me.TrackerControl1.Size = New System.Drawing.Size(869, 107)
-        Me.TrackerControl1.TabIndex = 0
-        Me.TrackerControl1.Text = "TrackerControl1"
-        Me.TrackerControl1.TrackHeight = 50.0!
-        Me.TrackerControl1.ViewXOffsetPercentage = 0.0R
-        Me.TrackerControl1.ViewYOffsetPixels = 0
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -510,6 +510,8 @@ Partial Class frmMain
         Me.Name = "frmMain"
         Me.Padding = New System.Windows.Forms.Padding(8, 31, 8, 8)
         Me.ShowIcon = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.XenonMenu1.ResumeLayout(False)
         Me.XenonMenu1.PerformLayout()
         Me.SplitContainer1.Panel1.ResumeLayout(False)

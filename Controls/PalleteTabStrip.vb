@@ -17,32 +17,26 @@
         Dim g As Graphics = e.Graphics
         g.TextRenderingHint = Drawing.Text.TextRenderingHint.ClearTypeGridFit
         g.Clear(BackColor)
-        BenMisc.DrawElement(g, My.Resources.TabBase, 0, TabHeight - 1, Width, Height - TabHeight + 1, 2)
+        BenMisc.DrawElement(g, My.Resources.TabBase, 0, TabHeight - 1, Width, Height - TabHeight + 1, 3)
 
         Dim i As Long = 0
         Dim tabrect As Rectangle
-        'Dim control As PalleteControl = frmMain.PalleteControl1 'CType(Parent, PalleteControl)
         For Each t As Tab In Me.Tabs
             tabrect = New Rectangle(i * TabWidth, 0, TabWidth, TabHeight)
             If i = CurrentTabIndex Then
-                'tab is selected
-                'If t.Hover Then
-                'g.DrawImage(My.Resources.TabSelectedHover, tabrect)
-                'Else
                 g.DrawImage(My.Resources.TabSelected, tabrect)
-                'End If
-                g.DrawString(t.Text, SystemFonts.SmallCaptionFont, Brushes.White, tabrect.X + 15, tabrect.Y + 1)
+                g.DrawString(t.Text, SystemFonts.SmallCaptionFont, Brushes.White, tabrect.X + 15, tabrect.Y)
             Else
-                tabrect.Y -= 1
-                'tab is not selected
+                tabrect.Y -= 0
                 If t.Hover Then
                     g.DrawImage(My.Resources.TabUnselectedHover, tabrect)
                 Else
                     g.DrawImage(My.Resources.TabUnselected, tabrect)
                 End If
-                g.DrawString(t.Text, SystemFonts.SmallCaptionFont, Brushes.White, tabrect.X + 15, tabrect.Y + 5)
+                Dim smallfont As New Font(SystemFonts.SmallCaptionFont.FontFamily.Name, SystemFonts.SmallCaptionFont.Size - 3)
+                g.DrawString(t.Text, smallfont, Brushes.White, tabrect.X + 12, tabrect.Y + 5)
+                smallfont.Dispose()
             End If
-
             i += 1
         Next
     End Sub
