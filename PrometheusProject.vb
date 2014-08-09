@@ -36,6 +36,7 @@ Public Class PrometheusProject
             Dim doc As New XmlDocument
             doc.Load(File)
             Dim project As XmlElement = doc.DocumentElement '= GetChildByName(doc.DocumentElement, "PrometheusProject")
+            result.SourcePath = project.GetAttribute("SourcePath")
             'Source Videos
             Dim sourcevids As XmlElement = project.Item("SourceVideos")
             For Each sc As XmlElement In sourcevids.ChildNodes

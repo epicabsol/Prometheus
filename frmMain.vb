@@ -252,8 +252,6 @@ Public Class frmMain
             Else
                 'it is video
                 Dim newclip As VideoClip = Project.SourceVideoClips(XenonTiler1.Items.IndexOf(tile)).MakeClip(FrameNumber)
-                newclip.CropStart = 24
-                newclip.CropEnd = 24
                 Project.VideoClips.Add(newclip)
                 TrackerControl1.SelectedClip = newclip
             End If
@@ -318,7 +316,7 @@ Public Class frmMain
             Case -1
                 MsgBox("No loaders available for that resource type. Sorry. =(" & vbNewLine & "(Hint: Get\Make a plugin for it!)")
         End Select
-        Project.SourcePath = IO.Path.GetFullPath(browser.FileName)
+        Project.SourcePath = IO.Path.GetDirectoryName(browser.FileName)
         PalleteTabStrip1.SetTab(0)
     End Sub
 
