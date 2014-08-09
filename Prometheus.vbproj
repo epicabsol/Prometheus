@@ -228,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Prometheus Icon.ico" />
+    <None Include="Resources\ModifierStack.png" />
     <None Include="Resources\MenuItem_Tools.png" />
     <None Include="Resources\MenuItem_Convert.png" />
     <None Include="Resources\MenuItem_GitHub.png" />

@@ -34,7 +34,8 @@ Public Class ModifierStackControl
     End Function
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         Dim g As Graphics = e.Graphics
-        g.Clear(BackColor)
+        'g.Clear(BackColor)
+        BenMisc.DrawElement(g, My.Resources.ModifierStack, 0, 0, Width, Height, 25)
         g.TextRenderingHint = Drawing.Text.TextRenderingHint.ClearTypeGridFit
         g.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
         If IsNothing(SelectedClip) = False Then
