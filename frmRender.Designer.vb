@@ -26,12 +26,12 @@ Partial Class frmRender
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.cmdRender = New Xenon.XenonButton()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.XenonTextBox1 = New Xenon.XenonTextBox()
+        Me.txtPath = New Xenon.XenonTextBox()
         Me.XenonButton3 = New Xenon.XenonButton()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblWidth = New Xenon.XenonTextBox()
-        Me.lblHeight = New Xenon.XenonTextBox()
+        Me.txtWidth = New Xenon.XenonTextBox()
+        Me.txtHeight = New Xenon.XenonTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -88,16 +88,16 @@ Partial Class frmRender
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Output Path"
         '
-        'XenonTextBox1
+        'txtPath
         '
-        Me.XenonTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtPath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.XenonTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.XenonTextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.XenonTextBox1.Location = New System.Drawing.Point(82, 6)
-        Me.XenonTextBox1.Name = "XenonTextBox1"
-        Me.XenonTextBox1.Size = New System.Drawing.Size(389, 20)
-        Me.XenonTextBox1.TabIndex = 3
+        Me.txtPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtPath.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.txtPath.Location = New System.Drawing.Point(82, 6)
+        Me.txtPath.Name = "txtPath"
+        Me.txtPath.Size = New System.Drawing.Size(389, 20)
+        Me.txtPath.TabIndex = 3
         '
         'XenonButton3
         '
@@ -133,23 +133,23 @@ Partial Class frmRender
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Format"
         '
-        'lblWidth
+        'txtWidth
         '
-        Me.lblWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblWidth.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.lblWidth.Location = New System.Drawing.Point(82, 59)
-        Me.lblWidth.Name = "lblWidth"
-        Me.lblWidth.Size = New System.Drawing.Size(65, 20)
-        Me.lblWidth.TabIndex = 6
+        Me.txtWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtWidth.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.txtWidth.Location = New System.Drawing.Point(82, 59)
+        Me.txtWidth.Name = "txtWidth"
+        Me.txtWidth.Size = New System.Drawing.Size(65, 20)
+        Me.txtWidth.TabIndex = 6
         '
-        'lblHeight
+        'txtHeight
         '
-        Me.lblHeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblHeight.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.lblHeight.Location = New System.Drawing.Point(179, 59)
-        Me.lblHeight.Name = "lblHeight"
-        Me.lblHeight.Size = New System.Drawing.Size(65, 20)
-        Me.lblHeight.TabIndex = 7
+        Me.txtHeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtHeight.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.txtHeight.Location = New System.Drawing.Point(179, 59)
+        Me.txtHeight.Name = "txtHeight"
+        Me.txtHeight.Size = New System.Drawing.Size(65, 20)
+        Me.txtHeight.TabIndex = 7
         '
         'Label3
         '
@@ -200,12 +200,12 @@ Partial Class frmRender
         Me.XenonProgressBar1.ColorDark = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.XenonProgressBar1.ColorLight = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.XenonProgressBar1.Location = New System.Drawing.Point(15, 85)
-        Me.XenonProgressBar1.Max = CType(10, Long)
+        Me.XenonProgressBar1.Max = CType(100, Long)
         Me.XenonProgressBar1.Name = "XenonProgressBar1"
         Me.XenonProgressBar1.Size = New System.Drawing.Size(266, 11)
         Me.XenonProgressBar1.TabIndex = 11
         Me.XenonProgressBar1.Text = "XenonProgressBar1"
-        Me.XenonProgressBar1.Value = CType(5, Long)
+        Me.XenonProgressBar1.Value = CType(0, Long)
         '
         'frmRender
         '
@@ -218,12 +218,12 @@ Partial Class frmRender
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cmdFormatOptions)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lblHeight)
-        Me.Controls.Add(Me.lblWidth)
+        Me.Controls.Add(Me.txtHeight)
+        Me.Controls.Add(Me.txtWidth)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.XenonButton3)
-        Me.Controls.Add(Me.XenonTextBox1)
+        Me.Controls.Add(Me.txtPath)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -240,12 +240,12 @@ Partial Class frmRender
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents cmdRender As Xenon.XenonButton
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents XenonTextBox1 As Xenon.XenonTextBox
+    Friend WithEvents txtPath As Xenon.XenonTextBox
     Friend WithEvents XenonButton3 As Xenon.XenonButton
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents lblWidth As Xenon.XenonTextBox
-    Friend WithEvents lblHeight As Xenon.XenonTextBox
+    Friend WithEvents txtWidth As Xenon.XenonTextBox
+    Friend WithEvents txtHeight As Xenon.XenonTextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label

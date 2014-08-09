@@ -34,25 +34,25 @@ To Do (in no particular order)
 - AVI
 - MP4
 - GIF
-- Modifiers
+- Modifiers (functional)
 - Rendering to AVI and PNG sequence
 - Audio Clips
 - Generator Clips
 - Limit preview FPS
-- Modifier Stack Panel
-- Modifier Property Window
+- Modifier Stack Panel (completed)
+- Modifier Property Window (completed)
 - Project File Serialization (completed without audio support)
 - Cursor changing (Frustrating!!!!)
 - Pseudo-clipboard for clips
 - Cooler main menu
 - Context menu for clips with Remove, Duplicate, Select Source, Open Location options
 - Re-theme UI to match the menu somehow
-- Add a video converter window via ffmpeg
+- Add a video converter window via FFmpeg
 
 Notes
 -----
 
 - This is my first GitHub Project.
 - The #Const s in frmMain.vb and frmMain.Designer.vb are for an Aero Glass implementation I've been working on, but it's terribly buggy, so develop with it off, please.
-- Maybe more source formats could be used by convering them into a temp folder with ffdshow. (sounds easier and more promising than finding a .NET library for each.)
+- Maybe more source formats could be used by convering them into a temp folder with FFmpeg. (sounds easier and more promising than finding a .NET library for each.)
 - Prometheus makes heavy use of my Xenon project, which is a set of cooler looking (IMHO) Windows Forms controls, and also is not perfect.

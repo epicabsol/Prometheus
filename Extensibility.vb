@@ -67,7 +67,7 @@ Public Class Registrar
     Public Sub RegisterSourceLoader(Extension As String, FormatDescription As String, Loader As SourceLoader)
         Loaders.RegisterLoader(Extension, FormatDescription, Loader)
     End Sub
-    Public Sub RegisterRenderFormat(Extension As String, FormatDescription As String, RenderFormat As RenderFormat)
-
+    Public Sub RegisterRenderFormat(RenderFormat As RenderFormat)
+        RenderFormats.RegisterRenderFormat(RenderFormat)
     End Sub
 End Class

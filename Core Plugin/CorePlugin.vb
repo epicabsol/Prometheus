@@ -18,6 +18,7 @@ Public Class CorePlugin
         Registrar.RegisterSourceLoader(".tif", "TIFF Image Sequence", sequenceloader)
         Registrar.RegisterSourceLoader(".avi", "AVI Movie", New AviLoader)
         Registrar.RegisterModifier(New ChromaKeyModifierSource)
+        Registrar.RegisterRenderFormat(New PNGSequenceRenderFormat)
     End Sub
 
 End Class

@@ -35,11 +35,6 @@
         s = Strings.Left(s, Len(s) - 1) 'chop off the extra pipe character ("|")
         Return s
     End Function
-    Public Function BuildRenderFilter() As String
-        Throw New NotImplementedException()
-    End Function
-    'Public Sub RegisterDefaultLoaders()
-    'End Sub
 End Module
 
 Public Class BrowsableFormat
