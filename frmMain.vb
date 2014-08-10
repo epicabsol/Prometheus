@@ -423,4 +423,12 @@ Public Class frmMain
     Private Sub RenderMovieToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenderMovieToolStripMenuItem.Click
         frmRender.ShowDialog()
     End Sub
+
+    Private Sub cmdREmoveModifier_Click(sender As Object, e As EventArgs) Handles cmdREmoveModifier.Click
+        If IsNothing(ModifierStackControl1.SelectedModifier) = False Then
+            TrackerControl1.SelectedClip.Modifiers.Remove(ModifierStackControl1.SelectedModifier)
+            ModifierStackControl1.Invalidate()
+            RefreshPreview()
+        End If
+    End Sub
 End Class
