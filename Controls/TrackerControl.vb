@@ -291,24 +291,24 @@ Public Class TrackerControl
             newclip.StartFrame = PixelLocation(PointToClient(New Point(e.X, e.Y)).X)
             newclip.Track = (PointToClient(New Point(e.X, e.Y)).Y + ViewYOffsetPixels) \ TrackHeight
             frmMain.Project.VideoClips.Add(newclip)
-            Exit Sub
-        End If
+        Else
+            Dim hitclip As Clip = HitTestClips(PointToClient(New Point(e.X, e.Y)).X, PointToClient(New Point(e.X, e.Y)).Y)
+            If Not IsNothing(hitclip) Then
+                For Each ms As IModifierSource In Plugins.Modifiers
+                    If e.Data.GetDataPresent(ms.GetType().FullName) Then
+                        Dim source As IModifierSource = CType(e.Data.GetData(ms.GetType().FullName), IModifierSource)
 
-        Dim hitclip As Clip = HitTestClips(PointToClient(New Point(e.X, e.Y)).X, PointToClient(New Point(e.X, e.Y)).Y)
-        If Not IsNothing(hitclip) Then
-            For Each ms As IModifierSource In Plugins.Modifiers
-                If e.Data.GetDataPresent(ms.GetType().FullName) Then
-                    Dim source As IModifierSource = CType(e.Data.GetData(ms.GetType().FullName), IModifierSource)
-
-                    If source.ApplicableToClip(hitclip) Then
-                        Dim newmod As IModifierInstance = source.MakeInstance(hitclip)
-                        hitclip.Modifiers.Add(newmod)
+                        If source.ApplicableToClip(hitclip) Then
+                            Dim newmod As IModifierInstance = source.MakeInstance(hitclip)
+                            hitclip.Modifiers.Add(newmod)
+                        End If
                     End If
-                End If
-            Next
+                Next
+            End If
         End If
-        frmMain.ModifierStackControl1.Invalidate()
 
+        frmMain.ModifierStackControl1.Invalidate()
+        frmMain.RefreshPreview()
     End Sub
 
     Private Sub TrackerControl_DragEnter(sender As Object, e As DragEventArgs) Handles Me.DragEnter
